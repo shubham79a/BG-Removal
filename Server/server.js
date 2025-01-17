@@ -2,6 +2,7 @@ import express from 'express'
 import 'dotenv/config'
 import cors from 'cors'
 import connectDB from './configs/mongoDB.js'
+import userRouter from './routes/userRoutes.js'
 
 
 //  app config
@@ -15,6 +16,7 @@ app.use(express.json())
 app.use(cors())
 
 
+app.use('/api/user', userRouter)
 
 // api routes
 app.get('/', (req, res) => {
