@@ -3,6 +3,7 @@ import 'dotenv/config'
 import cors from 'cors'
 import connectDB from './configs/mongoDB.js'
 import userRouter from './routes/userRoutes.js'
+import imageRouter from './routes/imageRoutes.js'
 
 
 //  app config
@@ -11,12 +12,15 @@ const app = express()
 await connectDB()
 
 
+
 // initialize middleware
 app.use(express.json())
 app.use(cors())
 
 
 app.use('/api/user', userRouter)
+app.use('/api/image', imageRouter)
+
 
 // api routes
 app.get('/', (req, res) => {
